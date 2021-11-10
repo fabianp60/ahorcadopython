@@ -20,7 +20,7 @@ def limpiar_pantalla():
 def cargar_palabras():
     global PALABRAS
     try:
-        with open('C:/Users/Nestor fabian/Documents/CursosPlatzi/Python/CursoPython_Comprehensions_Lambdas_ManejoErrores/cursopy/juego_ahorcado/data.txt', 'r', encoding="utf-8") as file:
+        with open('./data.txt', 'r', encoding="utf-8") as file:
             PALABRAS = [palabra.strip() for palabra in file if palabra != '']
         if len(PALABRAS) == 0:
             raise Exception('No hay palabras en el archivo')
