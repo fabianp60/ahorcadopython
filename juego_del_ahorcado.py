@@ -117,7 +117,7 @@ def imprimir_atajos_de_teclado():
 def obtener_tecleada_valida():
     tecleada_valida = False
     CARACTERES_VALIDOS = 'abcdefghijklmnñopqrstuvwxyz'
-    CARACTERES_ESPECIALES_VALIDOS = ['\x1b', '\t'] # [ESC, TAB]
+    CARACTERES_ESPECIALES_VALIDOS = ['\x1b', '\t','\xa4', '\xa5'] # [ESC, TAB, ñ]
     ch = ''
 
     while not tecleada_valida:
@@ -125,6 +125,8 @@ def obtener_tecleada_valida():
             keystroke = msvcrt.getch()
             if keystroke in [b'\xe0', b'\000']:
                 keystroke = msvcrt.getch()
+            elif keystroke in [b'\xa4', b'\xa5']:
+                ch = 'ñ'
             else:
                 ch = keystroke.decode('utf-8')
 
